@@ -34,10 +34,10 @@ before_install:
 # The pipe (|) is useful to create multiline scripts
 script:
   - |
-    mvn clean install sonar:sonar \
-    -Dsonar.projectKey=Gabriel382_sample-application-students\
-    -Dsonar.organization=gabriel382-github \
-    -Dsonar.host.url=https://sonarcloud.io \
-    -Dsonar.login=a2b031fb4c4a36af2141d833e90615ed71ee98a6
+    mvn sonar:sonar \
+  -Dsonar.projectKey=Gabriel382_sample-application-students \
+  -Dsonar.organization=gabriel382-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=a2b031fb4c4a36af2141d833e90615ed71ee98a6
 
 
