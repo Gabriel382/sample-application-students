@@ -29,8 +29,6 @@ before_install:
 
 #script:
 #  - mvn verify
-
-
 # The pipe (|) is useful to create multiline scripts
 script:
   - |
