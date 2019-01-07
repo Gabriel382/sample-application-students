@@ -1,4 +1,10 @@
 language: java
+
+# Cache the .m2 folder to prevent redownloading dependencies on each build
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+
 jdk: oraclejdk8
 
 # Define the services to use
