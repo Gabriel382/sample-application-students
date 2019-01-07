@@ -33,7 +33,7 @@ before_install:
 script:
   - |
     mvn clean install sonar:sonar \
-      -Dsonar.projectKey=sample-application-students\
+      -Dsonar.projectKey=Gabriel382-sample-application-students\
       -Dsonar.organization=gabriel382-github \
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login=$SONAR_TOKEN
