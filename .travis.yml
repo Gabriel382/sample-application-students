@@ -38,7 +38,6 @@ script:
     -Dsonar.projectKey=Gabriel382_sample-application-students\
     -Dsonar.organization=gabriel382-github \
     -Dsonar.host.url=https://sonarcloud.io \
-    -Dsonar.login=$SONAR_TOKEN \
-    - mvn verify 	
+    -Dsonar.login=$SONAR_TOKEN
 
 
