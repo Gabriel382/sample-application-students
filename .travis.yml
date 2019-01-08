@@ -1,42 +1,28 @@
 language: java
-
-# Cache the .m2 folder to prevent redownloading dependencies on each build
 cache:
   directories:
   - "$HOME/.m2/repository"
-
 jdk: oraclejdk8
-
-# Environment variables are strings (double quotes)
-# Example:
-# - secure: "DpR1th9rZvLMX0......"
 env:
   global:
-    - secure: "FF9tRzW70rABbSlJ/wIwOoy3ubfkucTMU/Nq8fofWci4xIjyriNS75ZIDymj0ew8MtybDTCCHAd5S1WZYupCsMiOMoasOfdOvlct1gCxPredRbxBZs3fSKXHBArG5ypma98FTEgpKpZCGf4CVmkESxLR/7rEw1L4chE6XsqgpqgqcnBDPmiXXlW437bM4P59kFbR9qKXzUbUpEC8ppIBu6VMYA9hisu4Sd6Sb9ZG+zrV+4Gru7uiETztIHWJCpqfMcmD6UABttAHUxucK+zC57PSLKYtBea179yyiX5FGitzuIjZWATXsnBD8rZowqgVPFx7IPkzcsG78SG9SRi60S8jy/lw3Ncbo8N3shXxFeI0uy31Jm8EL6qdTVkSb9qxMKNYmBk9Djqro1KuX27LvKn3Yo+JZfD0z+/0FjRjbNKvwc/ozkWTLgxZuyjExVz62lW2EyZhCKdJrNAExPuFUFpyXUUPbH9eBmJKMZM/XLYwDJM5XzjJawym/6/i1RiMJZp16ByNLdDKLHy0BiJgVl8zOvDZfBMcbgkRSqnzNVGodHlfR2PfnPU8Jwz2ZC4aoCb2NRN0u5BLlx0IzxgKNep6GKiC4CTlPPtdRySTIx/lJiYD7Gc24BSBkOlXMgvslu6TCnJU4m5Cx5k7AK4y6DwGsXwrbkL/9MCF4jEN9vE="
-
-    - secure: "X/YYZyBB3p+uTxGSURaqp4/dOCG21ZAW/aS0WKP7lzqiHlDY6MkJ8FPDWvppfy4SokbaS7cI437CTQtgs6Wmyy7Aflo0c0ePKxY8ofSILXYD/3OsfkDCFT62MPdxrqmIza/TdRBfjo1hkrqJGkKlQBySc6oAHou2kn9dgX7+h3hSKl4XcLzGHDo7Q+QEDrzWueMkSpW0sEBf2/sqkoKKemm7Xm228UX6d3RapRvX03mdsjPdmJP3raNPvMyRUGLZ3Cd+2yierQiPH4BIheUjCjJLF2B4EyvOY2ZKrTfoc5jlQxZZ8rJiM2hWdYIw8o4MwY6uGdAsYZP6tb45R03dly/7WUOVKiRDe1qHlZPMFxackrt9uTIw6dhBRV5p5RhghZ4GNh5vCsvbnZLjHRdEbE0PRG6zlq4gfLlYVD/THZkQ+GNLKzliD7ouaPNqR5VT2xov1kTrcMvOqN6sphK9G/LYFQNRxHemu8zxzFFGzbwoEqluce+BW82IuJozMloTeElUfouszsS6xET0KWBGw1Dp6JlJiH6At7oHO38BtgToWKxS3ECcl8OSkB2lPMr0EGS3nJSU4ieMtAF8ji0w5euhusfjBrrwRrGYWRa3gSsk5J+WuJjvWgzZTAwW9FL5H22AdzboY+NHiaGwQUIBDdTWtXqYPmfd143gpudFxhY="
-
-    - secure: "WBiYsJ4xSnx8DrMsIFBG5+kH8M8uwouK5X2Ci8omSZt1PPINHfG069dt4WW8gabLNEmeRwcrdmgUWmvVNcrGlkXgbH5WuKXAztuINQixnBZ6jOuaMH4U0edYwrEc/uqnI0MKBOn4DS2ee5QXZXuOf9bED+4fV7m62nagvtpExvJBAWjlfXPzyrntH98Cixw1e65SN6t6yFDt/bhfQVqIFKjCBGkLAVtqyrWNJ8jreXSgRH86nLA6jVA1R2ilKAu8HxWw7AVpwTiP6fdViGMzwTgMG86MoMrQiylnvsQrdoFh5bzxHtPjCDdK1ZOpXByCLglnoKlcYE7e1Cz+wiULZCUSaQPEfkYPQ5UGFvbJ61wVH2GgPj0OGe8eTHu1sG0sa6Cx4pGtH8gOT6fOOB1YoSybA1eR9iZIq1guI5pZ0p7N4qiRkprxoV3kpmQ4RccFYXRS1uuPw+U+q983WgKPkKORX4mIuKE+WlaI4SYYDI74Iq+gD9U6pCxzHi1w1AUTrItP9pElgVm5F9ZlSJ4NnCKsxzEjUqXiIV463PMr5BBvGTR6jb3M8ayskhMM+B3V9yTcKGShz8LvUI2Kq9t2MHxeYJC16UtL5YOWYrzmBzw7PJVLcWJ29391I3dEQ4LIU8qmC/tlJ03LwSfXkQgNJoiij9Q+ZWxnSifjAIbghyM="
-
-# Define the services to use
+  - secure: FF9tRzW70rABbSlJ/wIwOoy3ubfkucTMU/Nq8fofWci4xIjyriNS75ZIDymj0ew8MtybDTCCHAd5S1WZYupCsMiOMoasOfdOvlct1gCxPredRbxBZs3fSKXHBArG5ypma98FTEgpKpZCGf4CVmkESxLR/7rEw1L4chE6XsqgpqgqcnBDPmiXXlW437bM4P59kFbR9qKXzUbUpEC8ppIBu6VMYA9hisu4Sd6Sb9ZG+zrV+4Gru7uiETztIHWJCpqfMcmD6UABttAHUxucK+zC57PSLKYtBea179yyiX5FGitzuIjZWATXsnBD8rZowqgVPFx7IPkzcsG78SG9SRi60S8jy/lw3Ncbo8N3shXxFeI0uy31Jm8EL6qdTVkSb9qxMKNYmBk9Djqro1KuX27LvKn3Yo+JZfD0z+/0FjRjbNKvwc/ozkWTLgxZuyjExVz62lW2EyZhCKdJrNAExPuFUFpyXUUPbH9eBmJKMZM/XLYwDJM5XzjJawym/6/i1RiMJZp16ByNLdDKLHy0BiJgVl8zOvDZfBMcbgkRSqnzNVGodHlfR2PfnPU8Jwz2ZC4aoCb2NRN0u5BLlx0IzxgKNep6GKiC4CTlPPtdRySTIx/lJiYD7Gc24BSBkOlXMgvslu6TCnJU4m5Cx5k7AK4y6DwGsXwrbkL/9MCF4jEN9vE=
+  - secure: X/YYZyBB3p+uTxGSURaqp4/dOCG21ZAW/aS0WKP7lzqiHlDY6MkJ8FPDWvppfy4SokbaS7cI437CTQtgs6Wmyy7Aflo0c0ePKxY8ofSILXYD/3OsfkDCFT62MPdxrqmIza/TdRBfjo1hkrqJGkKlQBySc6oAHou2kn9dgX7+h3hSKl4XcLzGHDo7Q+QEDrzWueMkSpW0sEBf2/sqkoKKemm7Xm228UX6d3RapRvX03mdsjPdmJP3raNPvMyRUGLZ3Cd+2yierQiPH4BIheUjCjJLF2B4EyvOY2ZKrTfoc5jlQxZZ8rJiM2hWdYIw8o4MwY6uGdAsYZP6tb45R03dly/7WUOVKiRDe1qHlZPMFxackrt9uTIw6dhBRV5p5RhghZ4GNh5vCsvbnZLjHRdEbE0PRG6zlq4gfLlYVD/THZkQ+GNLKzliD7ouaPNqR5VT2xov1kTrcMvOqN6sphK9G/LYFQNRxHemu8zxzFFGzbwoEqluce+BW82IuJozMloTeElUfouszsS6xET0KWBGw1Dp6JlJiH6At7oHO38BtgToWKxS3ECcl8OSkB2lPMr0EGS3nJSU4ieMtAF8ji0w5euhusfjBrrwRrGYWRa3gSsk5J+WuJjvWgzZTAwW9FL5H22AdzboY+NHiaGwQUIBDdTWtXqYPmfd143gpudFxhY=
+  - secure: WBiYsJ4xSnx8DrMsIFBG5+kH8M8uwouK5X2Ci8omSZt1PPINHfG069dt4WW8gabLNEmeRwcrdmgUWmvVNcrGlkXgbH5WuKXAztuINQixnBZ6jOuaMH4U0edYwrEc/uqnI0MKBOn4DS2ee5QXZXuOf9bED+4fV7m62nagvtpExvJBAWjlfXPzyrntH98Cixw1e65SN6t6yFDt/bhfQVqIFKjCBGkLAVtqyrWNJ8jreXSgRH86nLA6jVA1R2ilKAu8HxWw7AVpwTiP6fdViGMzwTgMG86MoMrQiylnvsQrdoFh5bzxHtPjCDdK1ZOpXByCLglnoKlcYE7e1Cz+wiULZCUSaQPEfkYPQ5UGFvbJ61wVH2GgPj0OGe8eTHu1sG0sa6Cx4pGtH8gOT6fOOB1YoSybA1eR9iZIq1guI5pZ0p7N4qiRkprxoV3kpmQ4RccFYXRS1uuPw+U+q983WgKPkKORX4mIuKE+WlaI4SYYDI74Iq+gD9U6pCxzHi1w1AUTrItP9pElgVm5F9ZlSJ4NnCKsxzEjUqXiIV463PMr5BBvGTR6jb3M8ayskhMM+B3V9yTcKGShz8LvUI2Kq9t2MHxeYJC16UtL5YOWYrzmBzw7PJVLcWJ29391I3dEQ4LIU8qmC/tlJ03LwSfXkQgNJoiij9Q+ZWxnSifjAIbghyM=
 services:
-  - docker
-
+- docker
 before_install:
-# Prepare deploy
-  - openssl aes-256-cbc -K $encrypted_xxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv
-    -in travis_deploy_rsa.enc -out ~\/.ssh/travis_deploy_rsa -d  # Généré par travis encrypt-file
-  - chmod 600 /tmp/travis_deploy_rsa
-  - eval "$(ssh-agent -s)"
-  - ssh-add /tmp/travis_deploy_rsa
-  - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
+- openssl aes-256-cbc -K $encrypted_f7f9f3326f09_key -iv $encrypted_f7f9f3326f09_iv
+  -in travis_deploy_rsa.enc -out /tmp/travis_deploy_rsa -d
+- chmod 600 /tmp/travis_deploy_rsa
+- eval "$(ssh-agent -s)"
+- ssh-add /tmp/travis_deploy_rsa
+- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
-  - mvn clean install
-
-# Deploy updated container over ssh
+- mvn clean install
 deploy:
   provider: script
-  script: ssh -i /tmp/travis_deploy_rsa $DEPLOY_USER@$SERVER_IP_ADDRESS "sudo docker pull $IMAGE_NAME:$TAG && sudo docker rm -f app || true && sudo docker run -d --network net -p 80:8080 --name app $IMAGE_NAME:$TAG"
+  script: ssh -i /tmp/travis_deploy_rsa $DEPLOY_USER@$SERVER_IP_ADDRESS "sudo docker
+    pull $IMAGE_NAME:$TAG && sudo docker rm -f app || true && sudo docker run -d --network
+    net -p 80:8080 --name app $IMAGE_NAME:$TAG"
   on:
     branch: master
