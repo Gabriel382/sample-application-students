@@ -27,15 +27,31 @@ before_install:
 
 
 
-#script:
-#  - mvn verify
-# The pipe (|) is useful to create multiline scripts
+# Build an image containing the .jar and push it to the Docker Hub
 script:
-  - |
-    mvn clean install sonar:sonar \
-      -Dsonar.projectKey=Gabriel382-sample-application-students\
-      -Dsonar.organization=gabriel382-github \
-      -Dsonar.host.url=https://sonarcloud.io \
-      -Dsonar.login=$SONAR_TOKEN
+...
+  # Login to Docker hub
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  # Tag text according to the branch
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  # Image name
+  - export IMAGE_NAME=takimatraining/sample-application
+  # Build the image (see Dockerfile) and tag it with the commit ID
+  - docker build -t $IMAGE_NAME:$TRAVIS_COMMIT .
+  # Retag the image with the previously choosen tag
+  - docker tag $IMAGE_NAME:$TRAVIS_COMMIT $IMAGE_NAME:$TAG
+  # Push the tagged image to Docker Hub
+  - docker push $IMAGE_NAME:$TAG
 
+# Send an email to the commiter if the pipeline failed at some point
+notifications:
+  email:
+    on_failure: always
+
+env:
+  global:
+    # [...] other tokens
+    - secure: "Jg+ftcpNSCIuBtgQMc1GwjFw+7HqLFPYEvAsrDckKgD8H621TwjQDPjc2gc49mBOB5AuUPDY9ae5X/fMa0z5fEeAnAZTvbcepCNQRl7Q10PwHmsUUybuHSEgVqh/iDgNkwrFlE1oDS3rDLEaGNpP0HA+1q9mvESZeHqRKIRHJQk8CIrHg5Nrt4e7OJkWLlMXSdSzTwQQLPosRD72gZjIOkJrHhfOZdJDghLxVo3duyl4dmb6dRIkSpeOnmIoY/4VXHe3Ej5ST+lo22b1v3YrmgRe/kUMV5PpK0QLoV3YwzeesV7X+o0HUaoaZlnfkhlDkaXwoq2cHZ6osomQbBytdfatp0PPjKt7Gc1FhoaU4VToIKHLXQCcGsyEjxv9+u3DPWHyla7lY4TyoQiFkxdb9/f7DBMIE/CiNMhYQIlqoWUUlzAfNF6BMPJ5WeOXjAVUiYEXY/t6pf7sJqztMbTjwA90j4pn6sqoamuV9DLgu9BV4tqkoSecYPOaN9X1O8WJSav1o/fM6MJm6PgiInQ1+NQIZTjBciBsdoIY57qqo4oMgcaHUcVpFg7N6+BYkF6wuFM7EmwUVcfPQGAxgqZeCA6DCnYM0fzOX+Y6ePZeN4Ez2eI/+gnTdcZ/oxg2EoEFZwf3t1ECcJWxKYhPUkL8A047B+9ffDPZ6+YrVn1tNT8="
+
+    - secure: "VHktnk3351C5P7tbyhapZkMbnbIxOUq3N3dsGckWa6sFQCZdbJyy89ydGcVpmKoAExxSHeOGBOXM9R4lxRlLyk5Ty20ONKg5QyHYNi4nvhxc1dWUWQravb4ToaS6fG1YhEjcw9IiUg7pEf+cj+cQAwqv7xlUhg6RrwI6P9QguIMgDQ4U2rpvd93MuwglIRh94m4hnSLdia5k8FuUW1tkbz4Oo+3HmC2tCymjGPTe1io8aNxW23K0Iwl0Mf0OU4cwl27EmvZNs9q+ysnXR1XeNHF5SEz1XJhgjX62DaSzQ5vO43+ff98xcBY5+7Uiy7+pwfgDvhJBxDSCB3bc/u+OSPVhN73+9PLQv5DcZS0xEudi6Z5OIGImK/CiaV6x+RK+6LqgAxN9T9Ld2pjwyOzzwC2XiQVYrZYE2DDCBjIzYRlu88yubbKZWD9SzxfDsT5fq6uHLO/IVO920u2lJjWMtaBeVk+90LMj/TcErSd3vY29XvbsgTnFNeGJy9MvDJwuSlVLfJVYhr8w4XV5CyJPEEhI7dJg8yHCPBVQuOTKfybnwAJiV5QPHmCUWiKpKM0nO2R8YeOiYCvOmwf8h06twNI1FHaPDj00aeCi1GRFGwlF97brGNNcej+WPWJOz+sQOfjsKM6vbDfvegRJbQFPrtxnBaooEUzIYWV1G6PxSIM="
 
