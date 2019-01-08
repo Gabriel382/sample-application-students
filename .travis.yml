@@ -12,46 +12,29 @@ jdk: oraclejdk8
 # - secure: "DpR1th9rZvLMX0......"
 env:
   global:
-    - secure: "WBiYsJ4xSnx8DrMsIFBG5+kH8M8uwouK5X2Ci8omSZt1PPINHfG069dt4WW8gabLNEmeRwcrdmgUWmvVNcrGlkXgbH5WuKXAztuINQixnBZ6jOuaMH4U0edYwrEc/uqnI0MKBOn4DS2ee5QXZXuOf9bED+4fV7m62nagvtpExvJBAWjlfXPzyrntH98Cixw1e65SN6t6yFDt/bhfQVqIFKjCBGkLAVtqyrWNJ8jreXSgRH86nLA6jVA1R2ilKAu8HxWw7AVpwTiP6fdViGMzwTgMG86MoMrQiylnvsQrdoFh5bzxHtPjCDdK1ZOpXByCLglnoKlcYE7e1Cz+wiULZCUSaQPEfkYPQ5UGFvbJ61wVH2GgPj0OGe8eTHu1sG0sa6Cx4pGtH8gOT6fOOB1YoSybA1eR9iZIq1guI5pZ0p7N4qiRkprxoV3kpmQ4RccFYXRS1uuPw+U+q983WgKPkKORX4mIuKE+WlaI4SYYDI74Iq+gD9U6pCxzHi1w1AUTrItP9pElgVm5F9ZlSJ4NnCKsxzEjUqXiIV463PMr5BBvGTR6jb3M8ayskhMM+B3V9yTcKGShz8LvUI2Kq9t2MHxeYJC16UtL5YOWYrzmBzw7PJVLcWJ29391I3dEQ4LIU8qmC/tlJ03LwSfXkQgNJoiij9Q+ZWxnSifjAIbghyM="
+    - secure: "hxpS1jR0JcL+Iz4b8mj5v+SMLwlnTc/HwKEH0J7CBpgRlTjJ2CpUnI1W3tvghIscBy5QZT7YutuwtD5kwJoTmod5t48er8ICpCrzCEcurQ0sqg1OFXisXi+74+8UcLfLGo8UKeZv96lZH6NiBcvErf0hMVL0vCokZPxceRmuwnaOXdcJbu+u+OfqywuTZ1BSgd/zzmeeYALJ+L0am9D86CBAoFJDMxu0VEGSkRpdyQizOfd1LGG2beJtkevHCiYEDoCvfAj0jmR+6d9CJRzBJ+oY9JhjDs8v7Ufi2csi0BNIBAmcjCeeHcatOGk+keLgj1TP8637yZi7CqDtTI5PPohW2zCm1P9+a8dFvyVKJPi6EN6G6475T+JJelA5VYYMDQzqMzhTs35djrbaa6V7AtQyp00JYHdtZH5TXrxLcqftpo3+44D1Sk8r6UAykOYux50QRDz4mxcKiHWtN5yuhxirwmPi/4JSSWoNC5aIkXIG3hv7jmd71trqVROzbB399jayvfx0B+yvmzb4b/yDGmNBmWrmAOruwA9bazkGL2ZS47Ggtdde8BsbYD86HMBSP1LJ2r4moBBTg7ofTxop9rjI7hct5deh/xUkir0RwQZcYviWBggOVGTv7RSs42wW6lPmmQk9WEW/XJBOLmdWGKCmGy/sJMufaKrPnJEmSqM="
 
+    - secure: "gKi7k2M0NQOT7Im04PnPz74t9g69Z5pEKkQCoLNpWKoIjF66eqUQ1Yu5lvZUofob8gbGHAYUfq1JFj2hNLvdEwhpyPyB2HpSYea51FrrH7VYi8IRNMLMkn6yXM/PjBhlpUZtSFGRP8ibJRV3GT2T4gNBfPOB6sqTaThAWGGnjmdhfDDeNf+NGO0ic4HueHUvi9SDParH9nxehDJRbTIfbpWuKDWgweGFFhVmD26Q/bPyuv4Qky9YcxBxHCnOIByLOgNequ1XG+CRnyU18MqMcN1DQ6WUnUXpwcSeoJHychOrsZLJ386cZRLrABXtyF4AiIl8cOTyqsTa2S0Ma/pIf+Q/j1tr+67qPFnabddDXv5WpyXlnLdZz0xrwFr4GtUS4nJzWtYtT8P9flEqvpX+HWxUpkNAIJOxII6TLxE1q04q3zCm9T9lY1ZmxjiJ2bwJTVwXr7u2tgTudAi7BTWIAhtrHT8PZ220n8K+2tmoSW8djewfFFvMQDG3iGWkdd46ppz7mXF2/DTVmZ8jm8e6BCugx/zLVA7nrk6LLhGS/jNWCdhtprwAhxgmNeXvpy9bJeyIWaUknuXkyBmh8KLTP97ZVl8e2B7wwR5D93nI8skzYlT0Dnd6p6DIDvB0zPNrzsv78JWNil5PvfWE1k45IEBQDadHQLWBX8ROmR/YkQk="
 
 # Define the services to use
 services:
   - docker
 
 before_install:
-  - sudo service mysql stop
-  - docker pull takimatraining/devops-training-db
-  - docker run -d -p 127.0.0.1:3306:3306 takimatraining/devops-training-db
-
-
-
-
-# Build an image containing the .jar and push it to the Docker Hub
-script:
 ...
-  # Login to Docker hub
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  # Tag text according to the branch
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-  # Image name
-  - export IMAGE_NAME=takimatraining/sample-application
-  # Build the image (see Dockerfile) and tag it with the commit ID
-  - docker build -t $IMAGE_NAME:$TRAVIS_COMMIT .
-  # Retag the image with the previously choosen tag
-  - docker tag $IMAGE_NAME:$TRAVIS_COMMIT $IMAGE_NAME:$TAG
-  # Push the tagged image to Docker Hub
-  - docker push $IMAGE_NAME:$TAG
+# Prepare deploy
+  - openssl aes-256-cbc -K $encrypted_xxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv
+    -in travis_deploy_rsa.enc -out ~\/.ssh/travis_deploy_rsa -d  # Généré par travis encrypt-file
+  - chmod 600 /tmp/travis_deploy_rsa
+  - eval "$(ssh-agent -s)"
+  - ssh-add /tmp/travis_deploy_rsa
+  - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
-# Send an email to the commiter if the pipeline failed at some point
-notifications:
-  email:
-    on_failure: always
+...
 
-env:
-  global:
-    # [...] other tokens
-    - secure: "Jg+ftcpNSCIuBtgQMc1GwjFw+7HqLFPYEvAsrDckKgD8H621TwjQDPjc2gc49mBOB5AuUPDY9ae5X/fMa0z5fEeAnAZTvbcepCNQRl7Q10PwHmsUUybuHSEgVqh/iDgNkwrFlE1oDS3rDLEaGNpP0HA+1q9mvESZeHqRKIRHJQk8CIrHg5Nrt4e7OJkWLlMXSdSzTwQQLPosRD72gZjIOkJrHhfOZdJDghLxVo3duyl4dmb6dRIkSpeOnmIoY/4VXHe3Ej5ST+lo22b1v3YrmgRe/kUMV5PpK0QLoV3YwzeesV7X+o0HUaoaZlnfkhlDkaXwoq2cHZ6osomQbBytdfatp0PPjKt7Gc1FhoaU4VToIKHLXQCcGsyEjxv9+u3DPWHyla7lY4TyoQiFkxdb9/f7DBMIE/CiNMhYQIlqoWUUlzAfNF6BMPJ5WeOXjAVUiYEXY/t6pf7sJqztMbTjwA90j4pn6sqoamuV9DLgu9BV4tqkoSecYPOaN9X1O8WJSav1o/fM6MJm6PgiInQ1+NQIZTjBciBsdoIY57qqo4oMgcaHUcVpFg7N6+BYkF6wuFM7EmwUVcfPQGAxgqZeCA6DCnYM0fzOX+Y6ePZeN4Ez2eI/+gnTdcZ/oxg2EoEFZwf3t1ECcJWxKYhPUkL8A047B+9ffDPZ6+YrVn1tNT8="
-
-    - secure: "VHktnk3351C5P7tbyhapZkMbnbIxOUq3N3dsGckWa6sFQCZdbJyy89ydGcVpmKoAExxSHeOGBOXM9R4lxRlLyk5Ty20ONKg5QyHYNi4nvhxc1dWUWQravb4ToaS6fG1YhEjcw9IiUg7pEf+cj+cQAwqv7xlUhg6RrwI6P9QguIMgDQ4U2rpvd93MuwglIRh94m4hnSLdia5k8FuUW1tkbz4Oo+3HmC2tCymjGPTe1io8aNxW23K0Iwl0Mf0OU4cwl27EmvZNs9q+ysnXR1XeNHF5SEz1XJhgjX62DaSzQ5vO43+ff98xcBY5+7Uiy7+pwfgDvhJBxDSCB3bc/u+OSPVhN73+9PLQv5DcZS0xEudi6Z5OIGImK/CiaV6x+RK+6LqgAxN9T9Ld2pjwyOzzwC2XiQVYrZYE2DDCBjIzYRlu88yubbKZWD9SzxfDsT5fq6uHLO/IVO920u2lJjWMtaBeVk+90LMj/TcErSd3vY29XvbsgTnFNeGJy9MvDJwuSlVLfJVYhr8w4XV5CyJPEEhI7dJg8yHCPBVQuOTKfybnwAJiV5QPHmCUWiKpKM0nO2R8YeOiYCvOmwf8h06twNI1FHaPDj00aeCi1GRFGwlF97brGNNcej+WPWJOz+sQOfjsKM6vbDfvegRJbQFPrtxnBaooEUzIYWV1G6PxSIM="
-
+# Deploy updated container over ssh
+deploy:
+  provider: script
+  script: ssh -i /tmp/travis_deploy_rsa $DEPLOY_USER@$SERVER_HOST "sudo docker pull $IMAGE_NAME:$TAG && sudo docker rm -f app || true && sudo docker run -d --network net -p 80:8080 --name app $IMAGE_NAME:$TAG"
+  on:
+    branch: master
